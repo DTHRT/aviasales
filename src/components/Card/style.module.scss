@@ -1,0 +1,70 @@
+.Card {
+  background: #fff;
+  filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
+  border-radius: 5px;
+  padding: 20px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price {
+    color: #2196f3;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &__img {
+    width: 110px;
+  }
+
+  &__body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 140px);
+    justify-content: space-between;
+
+    @media screen and (max-width: 490px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media screen and (max-width: 350px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+
+  &__label {
+    color: #a0b0b9;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    color: #4a4a4a;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+  }
+}

@@ -1,0 +1,31 @@
+.Tab {
+  color: #4a4a4a;
+  text-align: center;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px; /* 166.667% */
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  padding: 15px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: darken($color: #fff, $amount: 5%);
+  }
+
+  &_active {
+    color: #fff;
+    background: #2196f3;
+    cursor: default;
+
+    &:hover {
+      background: #2196f3;
+    }
+  }
+}
