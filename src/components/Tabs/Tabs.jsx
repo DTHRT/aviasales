@@ -1,19 +1,22 @@
+import { useDispatch, useSelector } from 'react-redux'
+
 import Tab from '../Tab'
+import { filters } from '../../constants'
+import { setTabFilter } from '../../features/tabFilter/tabFilterSlice'
 
 import style from './style.module.scss'
 
 function Tabs() {
+  const currentFilter = useSelector((state) => state.filter.value)
+  const dispatch = useDispatch()
+
   return (
     <ul className={style.TabsList}>
-      <li className={style.TabsItem}>
-        <Tab isActive text="Самый дешевый" />
-      </li>
-      <li>
-        <Tab text="Самый быстрый" />
-      </li>
-      <li>
-        <Tab text="Оптимальный" />
-      </li>
+      {filters.map((filter, index) => (
+        <li className={style.TabsItem}>
+          <Tab isActive={currentFilter === index} text={filter} onClick={() => dispatch(setTabFilter(index))} />
+        </li>
+      ))}
     </ul>
   )
 }
