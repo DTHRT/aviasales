@@ -2,9 +2,9 @@ import classNames from 'classnames'
 
 import style from './style.module.scss'
 
-function Tab({ text, handler, isActive = false }) {
+function Tab({ text, onClick, isActive = false }) {
   return (
-    <button type="button" className={classNames(style.Tab, isActive && style.Tab_active)} onClick={handler}>
+    <button type="button" className={classNames(style.Tab, isActive && style.Tab_active)} onClick={onClick}>
       {text}
     </button>
   )
