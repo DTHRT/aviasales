@@ -7,13 +7,14 @@ import { setTabFilter } from '../../features/tabFilter/tabFilterSlice'
 import style from './style.module.scss'
 
 function Tabs() {
-  const currentFilter = useSelector((state) => state.filter.value)
+  const { value: currentFilter } = useSelector((state) => state.tabFilter)
   const dispatch = useDispatch()
 
   return (
     <ul className={style.TabsList}>
       {filters.map((filter, index) => (
-        <li className={style.TabsItem}>
+        // eslint-disable-next-line react/no-array-index-key
+        <li className={style.TabsItem} key={`${filter}_${index}`}>
           <Tab isActive={currentFilter === index} text={filter} onClick={() => dispatch(setTabFilter(index))} />
         </li>
       ))}

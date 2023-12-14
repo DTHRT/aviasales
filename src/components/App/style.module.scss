@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: 232px 1fr;
     gap: 20px;
+    align-items: start;
 
     @media screen and (max-width: 768px) {
       grid-template-columns: 1fr;

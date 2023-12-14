@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   checkboxes: [
-    { id: 0, text: 'Все', checked: false },
-    { id: 1, text: 'Без пересадок', checked: false },
-    { id: 2, text: '1 пересадка', checked: false },
-    { id: 3, text: '2 пересадки', checked: false },
-    { id: 4, text: '3 пересадки', checked: false },
+    { id: 0, text: 'Все', checked: true, value: 'all' },
+    { id: 1, text: 'Без пересадок', checked: true, value: 0 },
+    { id: 2, text: '1 пересадка', checked: true, value: 1 },
+    { id: 3, text: '2 пересадки', checked: true, value: 2 },
+    { id: 4, text: '3 пересадки', checked: true, value: 3 },
   ],
 }
 
@@ -35,10 +35,8 @@ const checkboxSlice = createSlice({
 
         default:
           targetCheckbox.checked = !targetCheckbox.checked
-
           const allCheckboxesExceptAll = checkboxes.slice(1)
           const allCheckboxesChecked = allCheckboxesExceptAll.every((item) => item.checked)
-
           checkboxes[0].checked = allCheckboxesChecked
       }
     },

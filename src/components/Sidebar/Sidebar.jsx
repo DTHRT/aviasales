@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { toggleCheckbox } from '../../features/checkboxFilter/checkboxFilterSlice'
+import { setTicketsToShow } from '../../features/tickets/ticketsSlice'
+import { selectFilteredTickets } from '../App/selectors'
 
 import style from './style.module.scss'
 
 function Sidebar() {
-  const checkboxes = useSelector((state) => state.checkboxFilter.checkboxes)
+  const { tickets } = useSelector((state) => state.tickets)
+  const { checkboxes } = useSelector((state) => state.checkboxFilter)
   const dispatch = useDispatch()
+  const filteredTickets = useSelector(selectFilteredTickets)
+
+  useEffect(() => {
+    if (!filteredTickets.length) {
+      setTicketsToShow([])
+    }
+
+    dispatch(setTicketsToShow(filteredTickets.slice(0, 5)))
+  }, [checkboxes, tickets])
+
+  const checkboxHandler = (id) => {
+    dispatch(toggleCheckbox(id))
+  }
 
   return (
     <div className={style.Sidebar}>
@@ -18,13 +34,13 @@ function Sidebar() {
           const { id, text, checked } = checkbox
 
           return (
-            <label className={style.Sidebar__label} htmlFor={`checkbox_${id}`}>
+            <label className={style.Sidebar__label} htmlFor={`checkbox_${id}`} key={`checkbox_${id}`}>
               <input
                 type="checkbox"
                 value="All"
                 id={`checkbox_${id}`}
                 checked={checked}
-                onClick={() => dispatch(toggleCheckbox(id))}
+                onChange={() => checkboxHandler(id)}
               />
               {text}
             </label>
