@@ -10,6 +10,7 @@ import style from './style.module.scss'
 function Sidebar() {
   const { tickets } = useSelector((state) => state.tickets)
   const { checkboxes } = useSelector((state) => state.checkboxFilter)
+  const { value } = useSelector((state) => state.tabFilter)
   const dispatch = useDispatch()
   const filteredTickets = useSelector(selectFilteredTickets)
 
@@ -19,7 +20,7 @@ function Sidebar() {
     }
 
     dispatch(setTicketsToShow(filteredTickets.slice(0, 5)))
-  }, [checkboxes, tickets])
+  }, [checkboxes, tickets, value])
 
   const checkboxHandler = (id) => {
     dispatch(toggleCheckbox(id))
