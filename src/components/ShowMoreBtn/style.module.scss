@@ -1,0 +1,28 @@
+.ShowMoreBtn {
+  position: relative;
+
+  &__btn {
+    display: block;
+    width: 100%;
+    background: #2196f3;
+    padding: 20px 160px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.1s;
+
+    color: #fff;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 166.667% */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    &:hover {
+      background: darken(#2196f3, 10%);
+    }
+  }
+}
