@@ -38,6 +38,8 @@ function App() {
 
           {error && <div>{`Error: ${error}`}</div>}
 
+          {ticketsToShow.length === 0 && <p>Рейсов, подходящих под заданные фильтры, не найдено</p>}
+
           <CardList />
 
           {ticketsToShow.length > 0 && <ShowMoreBtn />}
