@@ -8,6 +8,7 @@ import Tabs from '../Tabs'
 import CardList from '../CardList'
 import { fetchSearchId, fetchTickets } from '../../features/tickets/ticketsSlice'
 import ShowMoreBtn from '../ShowMoreBtn/ShowMoreBtn'
+import Loader from '../Loader/Loader'
 
 import '../../styles/globals.scss'
 import styles from './style.module.scss'
@@ -33,7 +34,7 @@ function App() {
         <Main>
           <Tabs />
 
-          {status === 'pending' && <div>Loading...</div>}
+          {status === 'pending' && <Loader />}
 
           {error && <div>{`Error: ${error}`}</div>}
 
