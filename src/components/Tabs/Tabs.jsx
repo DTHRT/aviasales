@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 
 import Tab from '../Tab'
-import { filters } from '../../constants'
+import filters from '../../constants'
 import { setTabFilter } from '../../features/tabFilter/tabFilterSlice'
 
 import style from './style.module.scss'

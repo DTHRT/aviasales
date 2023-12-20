@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { toggleCheckbox } from '../../features/checkboxFilter/checkboxFilterSlice'
 import { setTicketsToShow } from '../../features/tickets/ticketsSlice'
-import { selectFilteredTickets } from '../App/selectors'
+import selectFilteredTickets from '../App/selectors'
 
 import style from './style.module.scss'
 

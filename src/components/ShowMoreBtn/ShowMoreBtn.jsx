@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { selectFilteredTickets } from '../App/selectors'
+import selectFilteredTickets from '../App/selectors'
 import { setTicketsToShow } from '../../features/tickets/ticketsSlice'
 
 import style from './style.module.scss'
