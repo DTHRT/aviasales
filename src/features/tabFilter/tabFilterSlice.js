@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const tabFilterSlice = createSlice({
   name: 'tabFilter',
   initialState: {
-    value: 0,
+    value: 1,
   },
   reducers: {
     setTabFilter: (state, action) => ({

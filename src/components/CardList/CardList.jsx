@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import Card from '../Card'
@@ -9,12 +10,15 @@ function CardList() {
 
   return (
     <ul className={style.CardList}>
-      {ticketsToShow.map((ticket, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <li key={`ticket_${index}`}>
-          <Card ticket={ticket} />
-        </li>
-      ))}
+      {ticketsToShow.map((ticket) => {
+        const { price, carrier } = ticket
+
+        return (
+          <li key={`ticket_${price}_${carrier}`}>
+            <Card ticket={ticket} />
+          </li>
+        )
+      })}
     </ul>
   )
 }

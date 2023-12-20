@@ -12,12 +12,14 @@ function Tabs() {
 
   return (
     <ul className={style.TabsList}>
-      {filters.map((filter, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <li className={style.TabsItem} key={`${filter}_${index}`}>
-          <Tab isActive={currentFilter === index} text={filter} onClick={() => dispatch(setTabFilter(index))} />
-        </li>
-      ))}
+      {filters.map((filter) => {
+        const { id, title } = filter
+        return (
+          <li className={style.TabsItem} key={`${title}_${id}`}>
+            <Tab isActive={currentFilter === id} text={title} onClick={() => dispatch(setTabFilter(id))} />
+          </li>
+        )
+      })}
     </ul>
   )
 }
