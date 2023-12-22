@@ -32,7 +32,9 @@ function App() {
       <div className={styles.App__grid}>
         <Sidebar />
         <Main>
-                    <Tabs />
+          <Tabs />
+          
+          qwe
 
           {status === 'pending' && <Loader />}
 
